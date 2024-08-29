@@ -1,20 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" style="height: 100%;">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
   </head>
-  <body>
+  <body style="display: grid; align-content: center; justify-content: center; height: 100%;">
     <h1 id="clock">00:00<h1>
     <script>
       const { invoke } = window.__TAURI__.tauri
       const clock = document.getElementById('clock');
-
-      invoke('time', { name: 'World' })
-        .then((time) => {
-          clock.innerHTML = time;
-        })
+      async function updateTime() {
+        const time = await invoke('time');
+        clock.innerHTML = time;
+      }
+      updateTime();
+      setInterval(updateTime, 1000);
     </script>
   </body>
 </html>

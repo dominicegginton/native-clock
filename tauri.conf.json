@@ -8,7 +8,7 @@
   },
   "package": {
     "productName": "native-clock",
-    "version": "0.1.0"
+    "version": "0.0.1"
   },
   "tauri": {
     "allowlist": {
@@ -55,11 +55,17 @@
     },
     "windows": [
       {
+        "fileDropEnabled": false,
         "fullscreen": false,
-        "height": 600,
-        "resizable": true,
-        "title": "Clock",
-        "width": 800
+        "resizable": false,
+        "focus": false,
+        "transparent": false,
+        "decorations": false,
+        "skipTaskbar": true,
+        "titleBarStyle": "Transparent",
+        "hiddenTitle": true,
+        "width": 800,
+        "height": 600
       }
     ]
   }
